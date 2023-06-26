@@ -1,0 +1,267 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'poppins';
+}
+.navbar-brand{
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+img{
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.col-4{
+    background-color: #ECA340;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+}
+button{
+    border: 1px solid #ECA340;
+    background: none;
+    padding: 5px;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #ECA340;
+    color: white;
+}
+span{
+    color:#ECA340;
+    font-weight: bold;
+}
+.container-fluid{
+    padding: 2rem;
+}
+.titre{
+    background-color: #ECA340;
+    clip-path: circle(50%);
+    position: relative;
+}
+
+@media only screen and (max-width:480px) {
+    p{
+        font-size: 14px;
+    }
+    
+}
+
+.container-sm{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.container-sm .clearfix img{
+    width: 350px;
+}
+
+#curvedarrow{
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-right: 9px solid #ECA340;
+    transform: rotate(10deg);
+}
+#curvedarrow:after{
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-top: 3px solid #ECA340;
+    border-radius: 20px 0 0 0;
+    top: -12px;
+    left: -9px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+}
+
+#contact{
+    width: 50%;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+@media only screen and (max-width:908px) {
+    .container-sm,.container{
+        flex-direction: column;
+    }
+    .container .fleche img{
+        display: none;
+    }
+    
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.icon svg{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: #ffc16b;
+    border: 1px solid #ECA340;
+}
+.card-body a{
+    background-color: #ECA340;
+    border: none;
+}
+.card-body a:hover{
+    background-color: #ffc16b;
+}
+.container .fleche img{
+    width: 80px;
+}
+@property --progress-value {
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
+  }
+  
+  @keyframes html-progress {
+    to { --progress-value: 92; }
+  }
+  
+  @keyframes css-progress {
+    to { --progress-value: 87; }
+  }
+  
+  @keyframes js-progress {
+    to { --progress-value: 73; }
+  }
+  
+  .progress-bar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+    /* to center the percentage value */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-bar::before {
+    counter-reset: percentage var(--progress-value);
+    content: counter(percentage) '%';
+  }
+  
+  .html {
+    background: 
+      radial-gradient(closest-side, white 79%, transparent 80% 100%),
+      conic-gradient(#ECA340 calc(var(--progress-value) * 1%), #ffc16b 0);
+    animation: html-progress 2s 1 forwards;
+  }
+  
+  .html::before {
+    animation: html-progress 2s 1 forwards;
+  }
+  
+  .css {
+    background: 
+      radial-gradient(closest-side, white 79%, transparent 80% 100%, white 0),
+      conic-gradient(#ECA340 calc(var(--progress-value) * 1%), #ffc16b 0);
+    animation: css-progress 2s 1 forwards;
+  }
+  
+  .css::before {
+    animation: css-progress 2s 1 forwards;
+  }
+  
+  .js {
+    background: 
+      radial-gradient(closest-side, white 79%, transparent 80% 100%, white 0),
+      conic-gradient(#ECA340 calc(var(--progress-value) * 1%), #ffc16b 0);
+    animation: js-progress 2s 1 forwards;
+  }
+  
+  .js::before {
+    animation: js-progress 2s 1 forwards;
+  }
+  
+  
+  progress {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .things > .content {
+    float: left;
+    width: 50%;
+    height: 500px;
+    -webkit-box-sizing: border-box; 
+      -moz-box-sizing: border-box;    
+      box-sizing: border-box;
+    position: relative;
+  }
+  
+  .things > .content h1 {
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    height: 150px;
+    color: #89323B;
+  }
+  
+  /* Arrow */
+  
+  .arrow {
+      position: relative;
+    margin: 0 auto;
+    width: 100px;
+  }
+  
+  .arrow .curve {
+      border: 2px solid #BE5F4B;
+      border-color: transparent transparent transparent #BE5F4B;
+      height: 360px;
+      width: 1200px;
+      border-radius: 230px 0 0 150px;
+  }
+  
+  .arrow .point {
+      position: absolute;
+      left: 40px;
+      top: 315px;
+  }
+  
+  .arrow .point:before, .arrow .point:after {
+      border: 1px solid #BE5F4B;
+      height: 25px;
+      content: "";
+      position: absolute;
+  }
+  
+  .arrow .point:before {
+      top: -11px;
+      left: -11px;
+      transform:rotate(-74deg);
+      -webkit-transform:rotate(-74deg);
+    -moz-transform:rotate(-74deg);
+    -ms-transform: rotate(-74deg);
+  }
+  
+  .arrow .point:after {
+    top: -20px;
+      left: 5px;
+      transform:rotate(12deg);
+      -webkit-transform: rotate(12deg);
+    -moz-transform:rotate(12deg);
+    -ms-transform: rotate(12deg);
+  }
