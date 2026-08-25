@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+/* Active la variante `dark:` sur la classe .dark (au lieu de prefers-color-scheme) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ink: #1b201c;
+  --paper: #f7f3ea;
+  --sand: #ede7d9;
+  --pine: #0e5a46;
+  --pine-deep: #0a4031;
+  --pine-light: #e3ede6;
+  --mint: #a8dcc8;
+  --gold: #e8c88a;
+  --ember: #c05b2a;
+  --line: #d9d2c1;
+  /* Panneaux « toujours sombres » (carte système, bloc contact) — ne s'inversent pas */
+  --panel: #161b17;
+  --panel-fg: #f0eee7;
+}
+
+/* --- Mode sombre : on inverse les tokens sémantiques --- */
+html.dark {
+  color-scheme: dark;
+  --ink: #e9e7e0;
+  --paper: #131914;
+  --sand: #1d241e;
+  --pine: #4fd1a5;
+  --pine-deep: #2aa584;
+  --pine-light: #1a251f;
+  --mint: #a8dcc8;
+  --gold: #e8c88a;
+  --ember: #e07a45;
+  --line: #2b332c;
+}
+html {
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-pine: var(--pine);
+  --color-pine-deep: var(--pine-deep);
+  --color-pine-light: var(--pine-light);
+  --color-mint: var(--mint);
+  --color-gold: var(--gold);
+  --color-ember: var(--ember);
+  --color-line: var(--line);
+  --color-panel: var(--panel);
+  --color-panel-fg: var(--panel-fg);
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+/* Transition douce des couleurs au changement de thème (sans casser les autres transitions) */
+@media (prefers-reduced-motion: no-preference) {
+  *, *::before, *::after {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* compense le header sticky sur ancres */
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+}
+* { border-color: var(--line); }
+::selection { background: var(--pine); color: var(--paper); }
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* --- Focus visible (accessibilité) --- */
+:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+button:focus-visible, a:focus-visible { border-radius: 6px; }
+
+/* --- Skip link --- */
+.skip-link {
+  position: fixed;
+  left: -9999px;
+  top: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.5);
+}
+.skip-link:focus { left: 1rem; }
+
+/* --- Reveal au scroll --- */
+.reveal-hidden { opacity: 0; transform: translateY(18px); }
+.reveal-visible { opacity: 1; transform: none; }
+.reveal-hidden, .reveal-visible {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* --- Mouvement réduit --- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-hidden { opacity: 1; transform: none; transition: none; }
+  .reveal-visible { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
