@@ -22,6 +22,13 @@ export const Contact = (): React.ReactElement => (
           Me contacter →
         </Link>
         <a
+          href="/Bintou_Amiratou_CV_2026.pdf"
+          download
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-mint/40 px-6 text-sm font-semibold text-mint transition-colors hover:bg-mint hover:text-panel"
+        >
+          Télécharger le CV
+        </a>
+        <a
           href="https://github.com/amiratou237"
           target="_blank"
           rel="noreferrer"

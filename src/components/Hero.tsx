@@ -29,6 +29,18 @@ export const Hero = (): React.ReactElement => (
           >
             Me contacter
           </Link>
+          <a
+            href="/Bintou_Amiratou_CV_2026.pdf"
+            download
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-pine/40 px-6 text-sm font-semibold text-pine transition-colors hover:bg-pine hover:text-paper active:scale-[.96]"
+          >
+            Télécharger le CV
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
         </div>
         <div className="mt-9 flex flex-wrap gap-x-7 gap-y-2.5 font-mono text-xs text-ink/60">
           <span className="flex items-center gap-1.5">

@@ -74,10 +74,12 @@ export const Header = (): React.ReactElement => {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <Link
-            href="#contact"
+            href="/Bintou_Amiratou_CV_2026.pdf"
+            target="_blank"
+            rel="noreferrer"
             className="hidden min-h-11 items-center rounded-full border border-ink px-5 font-mono text-xs font-medium transition-colors hover:bg-ink hover:text-paper sm:inline-flex"
           >
-            CV →
+            CV ↗
           </Link>
           <button
             type="button"
@@ -123,13 +125,23 @@ export const Header = (): React.ReactElement => {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="mt-4 block rounded-full bg-pine px-4 py-3 text-center text-sm font-semibold text-paper"
-          >
-            Me contacter
-          </Link>
+          <div className="mt-4 flex flex-col gap-2">
+            <a
+              href="/Bintou_Amiratou_CV_2026.pdf"
+              download
+              onClick={() => setOpen(false)}
+              className="block rounded-full border border-pine/50 px-4 py-3 text-center text-sm font-semibold text-pine"
+            >
+              Télécharger le CV
+            </a>
+            <Link
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="block rounded-full bg-pine px-4 py-3 text-center text-sm font-semibold text-paper"
+            >
+              Me contacter
+            </Link>
+          </div>
         </nav>
       )}
     </header>
